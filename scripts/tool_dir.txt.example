@@ -1,0 +1,3 @@
+D:\stocking-texture-tool
+# 把本文件复制为 tool_dir.txt，并把第一行改成你的工具安装目录
+# （该目录下应有 stocking/、.venv/、models/）
