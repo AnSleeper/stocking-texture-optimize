@@ -8,6 +8,34 @@ Everything runs locally — no network, no uploads.
 
 ---
 
+## ⭐ Meet the renderer: stocking-texture-tool
+
+This skill is just the "autopilot" — the real work is done by the open-source **Stocking Texture Tool**
+([stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool)), created by Bilibili creator
+**纯银碎月** (GitHub: [@silvermoong](https://github.com/silvermoong)). MIT licensed, free.
+
+- Project: https://github.com/silvermoong/stocking-texture-tool
+- Author's video introduction (Chinese): [《轻松提升丝袜的绘画质感：丝袜纹理工具（开源免费）》](https://www.bilibili.com/video/BV1tkpW63EC6)
+
+It adds **computed** fabric texture to stockings in illustrations — the texture is geometrically calculated, not painted by generative AI. Select the stocking regions, draw a few direction lines across the weave, and the tool computes how the texture wraps around the legs and body, then renders it in the chosen style.
+
+Highlights (from the author's introduction):
+
+- Click to segment a leg with three size tiers; brush and eraser for edge touch-up
+- 1–3 direction lines fill the weave in a second; mirror them to the other side
+- Divider lines and knee arcs for bent legs; tops can be split and auto-separated left/right
+- Styles: fine lines, knit, coil, diagonal lines, Kase-style grain, oily (experimental)
+- Density / strength / tilt / sparkle parameters; auto strength for black & white stockings; live preview
+- No moiré in exported pixels
+- Exports: final image, transparent stocking layer PNG, re-editable guide PSD; originals never modified
+- Fully local after install — nothing is uploaded
+
+Install (Windows 10 / 11; NVIDIA GPU faster, CPU works too): download the repo, double-click `install.bat` (a desktop shortcut appears); run it again to update. Offline install packages: [releases/deps-1](https://github.com/silvermoong/stocking-texture-tool/releases/tag/deps-1).
+
+> **Install it first — this skill can do nothing without it.** Consider starring the author's repo.
+
+---
+
 ## Features
 
 - **Automatic segmentation** — reuses the already-loaded Segment Anything model, scoring candidates by "vertical, elongated, moderately sized, dark"
@@ -31,6 +59,8 @@ Everything runs locally — no network, no uploads.
 1. **Install the renderer** — download the upstream repo, run `install.bat`, wait for dependencies and models.
 2. **Place this skill** — copy this repo into your AI's skills directory, e.g.
    `<project>/.trae/skills/stocking-texture-optimize/`, then restart the AI session.
+   Or grab the packaged zip (includes a Chinese quick-start for recipients) from
+   [Releases](https://github.com/AnSleeper/stocking-texture-optimize/releases).
 3. **Patch the read-only probe endpoint** (once):
 
    ```powershell
@@ -89,7 +119,8 @@ See [references/api-and-params.md](references/api-and-params.md) for the full li
 
 ## Upstream & License
 
-Renderer: [silvermoong/stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool) (MIT).
+Renderer: [silvermoong/stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool) (MIT), created by Bilibili creator **纯银碎月** ([@silvermoong](https://github.com/silvermoong)) —
+[video introduction](https://www.bilibili.com/video/BV1tkpW63EC6). All rendering capability is theirs; this repo is workflow automation on top.
 SAM: Meta (Apache-2.0). Depth Anything V2 Small: Apache-2.0.
 
 This repo contains only workflow scripts and docs. Licensed under [MIT](LICENSE).

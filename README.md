@@ -3,9 +3,36 @@
 > 给 AI 用的「丝袜质感优化」Skill：把插画图发给 AI，它会自动圈出丝袜部位、先出掩码图给你确认，确认后一次性输出 6 种织物纹理成品。
 
 这是一个 **AI Skill**（`SKILL.md` + 自动化脚本），适用于 Trae、Claude Code 等支持 `SKILL.md` 的 AI 工具。
-真正的渲染引擎是开源项目 [stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool)，
+真正的渲染引擎是开源软件 **[丝袜纹理工具（stocking-texture-tool）](https://github.com/silvermoong/stocking-texture-tool)**（见下方重点介绍），
 本仓库只负责把「分割部位 → 人工确认 → 铺走向线 → 渲染 → 导出」这套流程自动化。
 全程本地运行，不联网、不上传图片。
+
+---
+
+## ⭐ 先认识渲染引擎：丝袜纹理工具
+
+**本 Skill 只是「自动驾驶」，真正干活的是开源软件《丝袜纹理工具》**，所有渲染能力都来自它：
+
+- **软件原作者：B 站 UP 主 纯银碎月**（GitHub：[@silvermoong](https://github.com/silvermoong)）
+- 项目主页：**https://github.com/silvermoong/stocking-texture-tool** （MIT 开源、免费）
+- 作者介绍视频：**[《轻松提升丝袜的绘画质感：丝袜纹理工具（开源免费）》](https://www.bilibili.com/video/BV1tkpW63EC6)**
+
+它给插画里的丝袜加上**算出来的**真实织物纹理——纹理是几何计算的结果，不是生成式 AI 画的。粗选出丝袜所在部位，沿横纹画几条走向线，工具就算出纹理怎样绕着腿和身体走，再按选定的样式渲染。
+
+主要功能（摘自作者介绍）：
+
+- **点选**：点一下选出一条腿，小 / 中 / 大三档范围，画笔和橡皮修边
+- **走向线**：沿横纹画 1–3 条线，一两秒横纹就铺满；另一侧点「镜像」直接翻过去
+- **复杂场景**：腿弯折时画一条隔开线，膝盖补一条弧线平顺过渡；上衣可以切开、自动分割左右
+- **织物样式**：细线、针织、线圈、斜单线、加濑风、油光（试验）
+- **参数**：密度、强度、斜度、亮点；黑丝白丝按深浅自动设强度；细节预览随滑杆实时变化
+- **没有摩尔纹**：横纹太密时自动减弱，导出的像素里没有摩尔纹
+- **导出**：成品图、可叠回原图的透明丝袜层 PNG、可再打开接着改的引导 PSD；原文件不会被改写
+- **全程本机运行**：安装后无须联网，什么都不上传
+
+安装（Windows 10 / 11，有 NVIDIA 显卡更快，没有也能用）：下载仓库后双击 `install.bat` 一键安装，桌面会出现快捷方式；再双击一次 `install.bat` 就是更新。离线安装文件包：[releases/deps-1](https://github.com/silvermoong/stocking-texture-tool/releases/tag/deps-1)。
+
+> **没有它，本 Skill 什么都做不了。请先安装它，也欢迎去原作者的项目点个 star、看他的介绍视频。**
 
 ---
 
@@ -49,6 +76,8 @@
 ### 2. 放入 Skill 目录
 
 把本仓库放进你所用 AI 的 skills 目录：
+
+> 不想手动挑文件的话，直接从 [Releases](https://github.com/AnSleeper/stocking-texture-optimize/releases) 下载打包好的 Skill zip（内含接收方使用说明），解压放入即可。
 
 ```
 <Trae 项目或用户目录>/.trae/skills/stocking-texture-optimize/
@@ -201,11 +230,11 @@ stocking-texture-optimize/
 
 ## 与上游的关系
 
-- 渲染引擎：[silvermoong/stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool)（MIT）
+- **渲染引擎（软件本体）**：[silvermoong/stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool)，**原作者为 B 站 UP 主 纯银碎月（GitHub：[@silvermoong](https://github.com/silvermoong)）**，MIT 开源。[介绍视频：《轻松提升丝袜的绘画质感：丝袜纹理工具（开源免费）》](https://www.bilibili.com/video/BV1tkpW63EC6)
 - 分割模型：Segment Anything（Meta，Apache-2.0）
 - 深度模型：Depth Anything V2 Small（Apache-2.0）
 
-本仓库只包含流程脚本与说明，不包含上游代码和模型文件。
+本仓库只包含流程脚本与说明，不包含上游代码和模型文件。**全部渲染能力归功于原作者 [@silvermoong](https://github.com/silvermoong)，本 Skill 只是在其之上做流程自动化。**
 
 ## License
 

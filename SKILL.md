@@ -18,7 +18,7 @@ description: "丝袜质感优化：用本地 stocking-texture-tool 给插画人�
 
 ## 1. 前置条件（首次使用才需要）
 
-工具本体是开源项目 **silvermoong/stocking-texture-tool**（FastAPI + SAM ViT-B + Depth Anything V2），需要先装好：
+工具本体是开源项目 **[silvermoong/stocking-texture-tool](https://github.com/silvermoong/stocking-texture-tool)**（**软件原作者：B 站 UP 主 纯银碎月**，[介绍视频](https://www.bilibili.com/video/BV1tkpW63EC6)；FastAPI + SAM ViT-B + Depth Anything V2），需要先装好：
 
 | 项目 | 说明 |
 |---|---|
