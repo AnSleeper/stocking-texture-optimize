@@ -1,6 +1,17 @@
 # stocking-texture-optimize
 
-> 给 AI 用的「丝袜质感优化」Skill：把插画图发给 AI，它会自动圈出丝袜部位、先出掩码图给你确认，确认后一次性输出 6 种织物纹理成品。
+## 📦 丝袜质感优化 Skill
+
+这是一个**给 AI 用的技能包**：把插画图发给 AI，说一句**「帮我处理丝袜质感，是黑丝or白丝」**，它就会：
+
+- **自动圈出丝袜部位**，先出掩码图给你确认；范围不对就按网格图报坐标，改到对上为止
+- 你确认后，**一次性输出 6 种纹理成品**：细线、针织、线圈、斜单线、加濑风、油光
+- 黑丝、白丝都支持，纹理强度按丝袜深浅自动调节
+- **全程本地运行，不联网、不上传图片**
+
+> **怎么装**：从 [Releases](https://github.com/AnSleeper/stocking-texture-optimize/releases) 下载技能包，里面的《使用说明_接收方先看这里.md》写了完整安装步骤——把这份说明直接发给你的 AI，让它照着装即可。
+
+---
 
 这是一个 **AI Skill**（`SKILL.md` + 自动化脚本），适用于 Trae、Claude Code 等支持 `SKILL.md` 的 AI 工具。
 真正的渲染引擎是开源软件 **[丝袜纹理工具（stocking-texture-tool）](https://github.com/silvermoong/stocking-texture-tool)**（见下方重点介绍），
